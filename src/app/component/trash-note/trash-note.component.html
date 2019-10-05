@@ -1,0 +1,51 @@
+<h4>Trashed Notes</h4>
+<div fxLayoutAlign="center center">
+  <div>
+    <!-- <app-app-icon></app-app-icon> -->
+  </div>
+  <div *ngFor="let items of note">
+    <div style="display: flex;
+           flex-direction: row warp;
+          justify-content: space-between;">
+
+      <mat-card fxLayout="column" fxLayoutAlign="center center"
+        style=" width: fit-content;     margin-bottom: 5%; margin-left: 10%;    margin-bottom: 1%;    width: 22%; ">
+        <div style="margin-top:12px">
+          <div (click)="openDialog(items)"
+            style="color: #202124;direction: ltr;font-family: 'Roboto',arial,sans-serif;font-size: 20px;margin-top:-12px">
+            {{items.title}}
+          
+          </div>
+        </div>
+        <div (click)="openDialog(items)"
+          style="color: #202124;direction: ltr;font-family: 'Roboto',arial,sans-serif;font-size: 15px;margin-top:8px">
+          {{items.description}}</div>
+
+        <div>
+          <div flex=100 fxLayoutAlign="center center" style="margin-top: 2%">
+
+            <div fxLayout="row" fxLayoutAlign="end center">
+
+
+              <span class="fill-remaining-space">
+                <button mat-icon-button [matMenuTriggerFor]="menu">
+
+                  <mat-icon style="font-size: 17px !important" matTooltip="more">more_vert</mat-icon>
+                </button>
+                <mat-menu #menu="matMenu" [overlapTrigger]="false">
+                  <button mat-menu-item (click)="deleteNote(items.noteId)">
+
+                    <span>Delete forever</span>
+                  </button>
+                  <button mat-menu-item (click)="onRestore(items.noteId)">
+
+                    <span>Restore</span>
+                  </button>
+
+
+
+                </mat-menu>
+              </span>
+            </div>
+          </div>
+        </div>

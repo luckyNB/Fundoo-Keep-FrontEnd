@@ -1,0 +1,223 @@
+// .search{
+//   margin-left: 10%;
+// }
+
+// .buttonToolbar button{
+//   border: 0px;
+// }
+
+// // .buttonMenu button{
+// .buttonMenu
+// {
+//   margin-left: 21px;
+// }
+// .buttonSettings button{
+//   display: flex;
+
+//   border: 0ch;
+//   margin-right: 2%;
+//   margin-left:1%;
+// }
+// .buttonList button{
+//   display:flex;
+//   content: 'center';
+//   border: 0ch;
+//   margin-right: 1%
+// }
+// .buttonAccountCircle button{
+//   display:flex;
+ 
+//   border: 0ch;
+// margin-left: 8px;
+//   align-content: center
+// }
+// .buttonApps button{ 
+//   display:flex;
+ 
+//   border: 0ch;
+//   margin-right: 1%
+// }
+// .mat-sidenav-container {
+
+//   display: flex;
+
+  
+ 
+//   margin-left: 1%;
+// }
+
+
+// .bulbsimage{
+//   width: 44px;
+//   align-content: center;
+//   margin-right: -2px;
+//   margin-top: 1px
+// }
+
+// .menulastdiv
+// {
+//   margin-left: 20%;
+//   display: flex;
+//     flex-direction: row;
+//     justify-content: center;
+// }
+// .searchcard{
+//   padding:7px;
+//   border-radius: 10rem 10rem,10rem 10rem;
+//   box-shadow: 2px 2px rgb(187, 187, 187);
+// }
+// .toolbar
+// {display: flex;
+// flex-direction: row;
+// justify-content: center;
+// border: 1px solid;
+// }
+
+// .input
+// {
+// width: 430px;
+// font-size: 25px;
+// border: rgb(255, 227, 191);
+// }
+
+// input.input:focus{
+// outline-width: 0; 
+// }
+// .account{
+//   margin-top: 10px;
+// }
+// .labels{
+//   font-size: 14;
+// }
+
+// .vaibhaw{
+
+//     display: flex;
+//     outline: none;
+//     border-color: transparent;
+//     box-shadow: none;
+//     height: 8vh;
+//     border-top-right-radius: 50px 50px;
+//     border-bottom-right-radius: 50px 50px;
+//     }
+//     .vaibhaw:hover
+//     {
+//     background-image:none;
+//     background-color:#f1f3f3;
+//     border-right: 50px 50px;
+//     }
+//     .vaibhaw:focus {
+//     background-color: #fcefc3;
+//     }
+
+.searchInput{
+  display: flex;
+  border:none;
+  height: 25px;
+  width: 55vw;
+  background-color: #f1f3f3;
+  border-radius: 8px;
+  font-size: 15px;
+  border-color: lightgray;  
+  outline: none;
+  box-shadow: none;
+}
+.searchInput::-webkit-input-placeholder {
+  color: #81878c;
+  font-weight: lighter;
+  font-size: 18px;
+  font-family:Arial, Helvetica, sans-serif;
+  line-height: 40px;
+}
+.mat-icon-button{
+  display: flex;
+  outline: none;
+}
+.sidenav{
+  display: flex;
+  width: 22vw;
+  position: absolute;
+  overflow-y: scroll;
+  height: 100%;
+  
+}
+.mat-raised-button{
+
+  display: flex;
+  outline: none;
+  border-color: transparent;
+  box-shadow: none;
+  height: 8vh;
+  border-top-right-radius: 50px 50px;
+ border-bottom-right-radius: 50px 50px;
+}
+.mat-raised-button:hover
+{
+  background-image:none;
+  background-color:lightgrey;
+  border-right: 50px 50px;
+}
+.mat-raised-button:focus {
+  background-color: #fcefc3;
+}
+// /deep/.mat-drawer-transition .mat-drawer-content {
+//   height: 100vh;
+// }
+.title{
+  color: #5f6268;
+  font-weight:inherit;
+  font-size: 20px;
+  font-family: Arial, sans-serif;
+  }
+
+.mat-toolbar{
+  display:flex;
+  background-color: white;
+ position: sticky;
+}
+.mat-divider{
+  color:lightgray;
+}
+.icon{
+  width: 45;
+  height: 45;
+}
+.searchButton{
+  position: relative;
+  width: 40p;
+  height: 40px;
+  background-color: rgba(236,232,226,0)
+}
+.name{
+  color: #5f6268;
+  font-weight:inherit;
+  font-size: 12px;
+  font-family: Arial, sans-serif;
+
+}
+
+.searchBar{
+  background: #f1f3f4;
+border: 1px solid transparent;
+-moz-border-radius: 8px;
+border-radius: 8px;
+margin-left: auto;
+margin-right: auto;
+max-width: 720px;
+position: relative;
+font: 13px/27px Roboto,RobotoDraft,Arial,sans-serif;
+
+}
+.abc{
+  overflow-y:scroll;
+  height: 100vh;
+  width: 100vw;
+}
+// data service
+.accountButtons{
+  border-radius: 5px 5px 5px 5px;
+  height: 32px;
+  margin-bottom: 5px;
+  background-color: lightgray;
+
+}

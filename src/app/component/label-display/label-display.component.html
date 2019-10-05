@@ -1,0 +1,38 @@
+<div>
+
+  <!-- <div class="iconname" style="margin-left: 12px;margin-top: 5px">LABELS</div> -->
+  <div >
+    <div class="labels1" *ngFor="let labels of label" style="display: flex;
+                   flex-direction: row;">
+
+
+
+      <div fxLayout="row">
+        <div>
+          <span>
+            <button mat-raised-button style="width:100%">
+              <div style="margin:20%">
+                <img src="../../../assets/label.svg">
+                {{labels.labelName}}
+              </div>
+            </button>
+          </span>
+        </div>
+      </div>
+
+
+
+    </div>
+
+  </div>
+  <div class="labels1" (click)="opendialogLabel()" fxLayout="row" fxLayoutAlign="space-between center">
+    <div class="iconimage" matTooltip="Edit">
+      <img src="../../../assets/label.svg">
+      <label>Edit Label</label>
+    </div>
+
+  </div>
+
+
+
+</div>

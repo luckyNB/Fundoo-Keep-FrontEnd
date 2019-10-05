@@ -1,0 +1,227 @@
+<!-- <div fxLayout="row wrap" fxLayoutAlign="start start" fxLayoutGap="20px" style="margin-left: 5%;padding-top: 5%;">
+  <div *ngFor="let items of notes" class="cardcontaint" fxLayoutGap="20px">
+    <mat-card class="matCard" [ngStyle]="{'background-color': items.colorCode}">
+      <div fxLayout="row" fxLayoutAlign="end start" style="height: 30px;">
+        <button mat-icon-button>
+          <img src="../../../assets//unpinned.svg" matTooltip="Pin" mat-button style="height: 20px;width: 20px;">
+        </button>
+      </div>
+      <div class="card">
+        <div class="title">{{items.title}}</div>
+        <div class="description" >{{items.description}}</div>
+      </div>
+
+      <div class="icon" fxLayout="row" fxLayoutAlign="center end">
+     
+      </div>
+    </mat-card>
+  </div>
+</div> -->
+
+
+
+
+
+
+<div style="   
+    height: -webkit-fill-available;
+    display: flex;
+    flex-direction: row wrap;
+    flex-flow: row wrap;
+    align-items: flex-start;
+    ">
+
+  <div *ngFor="let items of notes" style="margin-left: 7%;">
+    <mat-card style=" width: fit-content; margin-left: 5%; margin-right: 5%;"
+      [ngStyle]="{'background-color':items.colorCode}">
+
+      <div style="margin-top:12px; display: flex; flex-direction: row; justify-content: space-between;">
+        <div (click)="openDialog(items)"
+          style="color: #202124;direction: ltr;font-family: 'Roboto',arial,sans-serif;font-size: 20px">
+          {{items.title}}
+        </div>
+        <div class="apppin" (click)="pinNote(items)">
+          <span style="margin-left:60%">
+            <mat-icon matTooltip="pinned"><img src="../../../assets/unpinned.svg"></mat-icon>
+          </span>
+        </div>
+      </div>
+
+      <div (click)="openDialog(items)"
+        style="color: #202124;direction: ltr;font-family: 'Roboto',arial,sans-serif;font-size: 15px;margin-top:8px">
+        {{items.description}}
+      </div>
+
+      <div>{{items.nlabels}}</div>
+      <div>
+        <!-- <app-collabsofnote></app-collabsofnote> -->
+
+       
+
+      </div>
+      <div [ngStyle]="{'background-color':items.colorCode}">
+        <div style="display: flex; flex-direction: row;align-items: start "
+          [ngStyle]="{'background-color':items.colorCode}">
+
+          <button matTooltip="Remind me" style="background-color: white;border-width: 0px;">
+
+            <mat-icon style="font-size: 17px !important" class="mat-color " >add_alert
+            </mat-icon>
+            <!-- <img src="../../../assets/remind me.svg"> -->
+          </button>
+
+          <button matTooltip="collaborator" style="background-color: white;border-width: 0px;">
+            <mat-icon style="font-size: 17px !important" class="mat-color " (click)="openCollabsDialog(items)">group_add
+            </mat-icon>
+
+          </button>
+
+          <button matTooltip="Set Color" [matMenuTriggerFor]="buttonMenu"
+            style="background-color: white;border-width: 0px;">
+            <mat-icon style="font-size: 17px !important" class="mat-color ">color_lens</mat-icon>
+          </button>
+
+ 
+
+
+
+
+
+          <button matTooltip="archieved" style="background-color: white;border-width: 0px;" (click)="onArchive(items)">
+            <mat-icon style="font-size: 17px !important" class="mat-color ">archive</mat-icon>
+          </button>
+
+
+
+          <button matTooltip="New note with image" style="background-color: white;border-width: 0px;">
+            <mat-icon style="font-size: 17px !important" class="mat-color ">image</mat-icon>
+          </button>
+
+          <span class="fill-remaining-space">
+            <!-- <button mat-icon-button ></button> -->
+
+            <mat-icon style="font-size: 17px !important" matTooltip="more" [matMenuTriggerFor]="menu"
+              class="mat-color ">more_vert</mat-icon>
+            <!-- </button> -->
+            <mat-menu #menu="matMenu" [overlapTrigger]="false">
+              <button mat-menu-item (click)="trashNote(items)">
+
+                <span>Delete Note</span>
+              </button>
+                <!-- <button mat-menu-item [matMenuTriggerFor]="labelTrigger">
+
+                  <span>Add Label</span>
+                </button> -->
+
+
+
+            </mat-menu>
+
+
+          </span>
+        </div>
+
+     
+        <!-- <div>
+          <mat-menu #labelTrigger="matMenu">
+            <div>Label note</div>
+            <div *ngFor="let labels of alllabel">
+              <mat-checkbox (click)="addLabelToNote(labels,items)" class="addlabel">{{labels.labelName}}
+              </mat-checkbox>
+
+            </div>
+          </mat-menu>
+        </div> -->
+
+
+
+        <div>
+          <mat-menu [overlapTrigger]="false" #buttonMenu="matMenu">
+            <button matTooltip="Yellow" (click)="setcolors('Yellow', items.noteId)" mat-mini-fab class="colorlens"
+              style="background-color:#fcf476"></button>
+            <button matTooltip="Orange" (click)="setcolors('Orange', items.noteId)" mat-mini-fab class="colorlens"
+              style="background-color:#f8bc04 "></button>
+            <button matTooltip="Red" (click)="setcolors('Red', items.noteId)" mat-mini-fab class="colorlens"
+              style="background-color:#f28b82 "></button>
+            <button matTooltip="White" (click)="setcolors('White', items.noteId)" mat-mini-fab class="colorlens"
+              style="background-color:#ffffff "></button>
+            <br />
+            <button matTooltip="Dark blue" (click)="setcolors('#aecbfa', items.noteId)" mat-mini-fab class="colorlens"
+              style="background-color:#aecbfa "></button>
+            <button matTooltip="Blue" (click)="setcolors('Blue', items.noteId)" mat-mini-fab class="colorlens"
+              style="background-color:#cbf0f8 "></button>
+            <button matTooltip="Teal" (click)="setcolors('Teal', items.noteId)" mat-mini-fab class="colorlens"
+              style="background-color:#a7ffea "></button>
+            <button matTooltip="Green" (click)="setcolors('Green', items.noteId)" mat-mini-fab class="colorlens"
+              style="background-color:#ccff90 "></button>
+            <br />
+            <button matTooltip="Gray" (click)="setcolors('Gray', items.noteId)" mat-mini-fab class="colorlens"
+              style="background-color:#e8eaed "></button>
+            <button matTooltip="Brown" (click)="setcolors('Brown', items.noteId)" mat-mini-fab class="colorlens"
+              style="background-color:#e6c9a8 "></button>
+            <button matTooltip="Pink" (click)="setcolors('Pink', items.noteId)" mat-mini-fab class="colorlens"
+              style="background-color:#fccfe8 "></button>
+            <button matTooltip="Purple" (click)="setcolors('Purple', items.noteId)" mat-mini-fab class="colorlens"
+              style="background-color:#d7aefb "></button>
+          </mat-menu>
+        </div>
+
+
+        <div>
+
+<!-- 
+          <mat-menu #remainder="matMenu" [ngStyle]="{'background-color':items.colorCode}">
+            <div class="reminderMain">
+              <div class="reminderTittle">Reminder:
+              </div>
+              <div (click)='setToday(items)' class="reminderInside">Later Today
+                <span style="margin-left: 57%">8:00</span>
+              </div>
+              <mat-divider></mat-divider>
+              <div (click)='setTomorrow(items)' class="reminderInside">Tomorrow
+                <span style="margin-left: 60%">8:00</span>
+              </div>
+              <mat-divider></mat-divider>
+              <div (click)='setWeekly(items)' class="reminderInside">Weekly
+                <span style="margin-left: 66%">8:00</span>
+              </div>
+              <mat-divider></mat-divider>
+              <div>
+                <div (click)='setPickTime()' class="reminderInside">
+                  <mat-icon>access_time</mat-icon>
+                  <span> Pick A Date </span>
+
+                </div>
+                <div>
+                  <mat-form-field class="reminderInside">
+                    <input matInput [matDatepicker]="picker" placeholder="Choose a date"
+                      [(ngModel)]="dateValue.CalendarDate">
+                    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                    <mat-datepicker #picker></mat-datepicker>
+                  </mat-form-field>
+                  <div (click)="setPickedDate(items)">
+                    <mat-icon>done</mat-icon>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </mat-menu> -->
+
+        </div>
+
+      </div>
+
+
+
+    </mat-card>
+
+  </div>
+</div>
+
+
+
+
+
+
+

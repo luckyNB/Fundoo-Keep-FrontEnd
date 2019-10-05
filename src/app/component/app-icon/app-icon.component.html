@@ -1,0 +1,196 @@
+<!-- <div>
+    <div flex=100 fxLayoutAlign="center center" style="margin-top: 2%">
+
+            <div fxLayout="row" fxLayoutAlign="end center">
+    
+              <button matTooltip="Remind me" style="background-color: white;border-width: 0px;" >
+    
+                <mat-icon style="font-size: 17px !important" class="mat-color " [matMenuTriggerFor]="remainder">add_alert
+                </mat-icon>
+              </button>
+    
+              <button matTooltip="collaborator" style="background-color: white;border-width: 0px;" >
+    
+                <mat-icon style="font-size: 17px !important" class="mat-color " (click)="openCollabsDialog(items)">group_add
+                </mat-icon>                 </button>
+    
+    
+    
+              <button matTooltip="add Image" style="background-color: white;border-width: 0px;" (click)="onColorSet()" [matMenuTriggerFor]="buttonMenu">
+    
+                <mat-icon style="font-size: 17px !important" class="mat-color ">color_lens</mat-icon>
+              </button>
+    
+              <button matTooltip="archieved" style="background-color: white;border-width: 0px;">
+    
+                <mat-icon style="font-size: 17px !important" class="mat-color ">unarchive</mat-icon>
+
+              </button>
+    
+    
+    
+              <button matTooltip="New note with image" style="background-color: white;border-width: 0px;">
+    
+                           <mat-icon style="font-size: 17px !important" class="mat-color ">image</mat-icon>
+
+              </button>
+              <button mat-button (click)="close()">Close</button>
+              <span class="fill-remaining-space">
+                <button mat-icon-button [matMenuTriggerFor]="menu">
+             
+                  <mat-icon style="font-size: 17px !important" matTooltip="more">more_vert</mat-icon>
+                </button>
+                <mat-menu #menu="matMenu" [overlapTrigger]="false">
+                  <button mat-menu-item (click)="deleteNote()">
+    
+                    <span>Delete Note</span>
+                  </button>
+                  <button mat-menu-item>
+                   <span>Add Label</span>
+                  </button>
+                   </mat-menu>
+              </span>
+            </div>
+            <div>
+              <mat-menu [overlapTrigger]="false" #buttonMenu="matMenu">
+                <button matTooltip="Yellow" (click)="setcolors('lightgoldenrodyellow', items.noteId)" mat-mini-fab class="colorlens"
+                  style="background-color:#fcf476"></button>
+                <button matTooltip="Orange" (click)="setcolors('coral', items.noteId)" mat-mini-fab class="colorlens"
+                  style="background-color:#f8bc04 "></button>
+                <button matTooltip="Red" (click)="setcolors('lightsalmon', items.noteId)" mat-mini-fab class="colorlens"
+                  style="background-color:#f28b82 "></button>
+                <button matTooltip="White" (click)="setcolors('white', items.noteId)" mat-mini-fab class="colorlens"
+                  style="background-color:#ffffff "></button>
+                <br />
+                <button matTooltip="Dark blue" (click)="setcolors('royalblue', items.noteId)" mat-mini-fab class="colorlens"
+                  style="background-color:#aecbfa "></button>
+                <button matTooltip="Blue" (click)="setcolors('lightskyblue', items.noteId)" mat-mini-fab class="colorlens"
+                  style="background-color:#cbf0f8 "></button>
+                <button matTooltip="Teal" (click)="setcolors('aquamarine', items.noteId)" mat-mini-fab class="colorlens"
+                  style="background-color:#a7ffea "></button>
+                <button matTooltip="Green" (click)="setcolors('lightgreen ', items.noteId)" mat-mini-fab class="colorlens"
+                  style="background-color:#ccff90 "></button>
+                <br />
+                <button matTooltip="Gray" (click)="setcolors('gainsboro', items.noteId)" mat-mini-fab class="colorlens"
+                  style="background-color:#e8eaed "></button>
+                <button matTooltip="Brown" (click)="setcolors('wheat  ', items.noteId)" mat-mini-fab class="colorlens"
+                  style="background-color:#e6c9a8 "></button>
+                <button matTooltip="Pink" (click)="setcolors('lightpink', items.noteId)" mat-mini-fab class="colorlens"
+                  style="background-color:#fccfe8 "></button>
+                <button matTooltip="Purple" (click)="setcolors('mediumpurple', items.noteId)" mat-mini-fab class="colorlens"
+                  style="background-color:#d7aefb "></button>
+              </mat-menu>
+            </div>
+      </div>
+  </div> -->
+
+  <div>
+    <div fxLayout="row wrap" style="visibility: visible">
+  
+      <mat-chip-list #chipList>
+        <mat-chip *ngIf="notereminder!=null" class="chips">
+          <mat-icon>schedule</mat-icon>
+          {{notereminder |  date:'medium'}}
+          <mat-icon matChipRemove (click)="removeremainder()">cancel</mat-icon>
+        </mat-chip>
+      </mat-chip-list>
+  
+  
+      <div *ngFor="let collabitems of collabUsers">
+        <mat-icon matTooltip={{collabitems.email}} (click)=openCollabDialog()>account_circle</mat-icon>
+      </div>
+  
+      <mat-chip-list #chipList>
+        <mat-chip *ngFor="let items of labelsOfNotes" class="chips">
+          {{ items.labelName }}
+          <mat-icon matChipRemove (click)="removeLabelFromNote(items)">cancel</mat-icon>
+        </mat-chip>
+  
+      </mat-chip-list>
+    </div>
+  </div>
+  <div fxLayout="row" fxLayoutAlign="space-between start">
+  
+    <button mat-icon-button>
+      <!-- <img src="../../../assets/RemindMe.svg" matTooltip="Remind Me" [matMenuTriggerFor]="reminderMenu" mat-button
+        (click)="reminder()" style="height: 20px;width: 20px;"> -->
+        <mat-icon style="font-size: 17px !important" class="mat-color "  matTooltip="Remind Me" [matMenuTriggerFor]="reminderMenu">add_alert
+        </mat-icon>
+    </button>
+    <button mat-icon-button>
+      <!-- <img src="../../../assets/Collaborator.svg" matTooltip="Collaborator" (click)=openCollabDialog() mat-button
+        style="height: 20px;width: 20px;"> -->
+        <mat-icon style="font-size: 17px !important" class="mat-color " matTooltip="Collaborator" (click)="openCollabsDialog(items)">group_add
+        </mat-icon>
+    </button>
+    <button mat-icon-button>
+      <!-- <img src="../../../assets/color.svg" matTooltip="Color" [matMenuTriggerFor]="color" mat-button
+        style="height: 20px;width: 20px;"> -->
+        <mat-icon style="font-size: 17px !important" class="mat-color ">color_lens</mat-icon>
+    </button>
+    <button mat-icon-button>
+      <img src="../../../assets/image.svg" matTooltip="Image" mat-button style="height: 20px;width: 20px;">
+    </button>
+  
+    <button mat-icon-button (click)=archive()>
+      <img src="../../../assets/archieved.svg" matTooltip="Archieve" mat-button style="height: 20px;width: 20px;">
+    </button>
+    <button mat-icon-button>
+      <img src="../../../assets/more.svg" matTooltip="More" mat-button [matMenuTriggerFor]="moreBtn"
+        style="height: 20px;width: 20px;">
+    </button>
+  
+  
+    <mat-menu #moreBtn="matMenu">
+      <div fxLayout="column">
+        <button mat-button (click)=trash()>Delete Note</button>
+        <button mat-button [matMenuTriggerFor]="label" (click)="$event.stopPropagation()">Add Label</button>
+        <button mat-button>Add Drawing</button>
+        <button mat-button>Restore</button>
+      </div>
+    </mat-menu>
+    <mat-menu #reminderMenu="matMenu">
+      <span mat-menu-item>Remainder:</span>
+      <button mat-menu-item (click)=today()>
+        <span>Later today</span>
+        <span> 8:00 PM</span>
+      </button>
+      <button mat-menu-item (click)=tomorrow()>
+        <span>Tommorow</span>
+        <span> 8:00 PM</span>
+      </button>
+      <button mat-menu-item (click)=nextweek()>
+        <span>Next week</span>
+        <span> Mon,8:00 PM</span>
+      </button>
+      <button mat-menu-item>
+        <span>
+          <mat-icon>schedule</mat-icon>
+          Pick data & Time
+        </span>
+      </button>
+    </mat-menu>
+    <div>
+      <mat-menu #label="matMenu">
+        <div fxLayout="column">
+          <div>Label note</div>
+          <div *ngFor="let label of allLabels">
+            <mat-checkbox (click)="addLabelToNote(label)">
+              <div [style.fontSize.px]=12>
+                {{label.labelName}}
+              </div>
+            </mat-checkbox>
+          </div>
+        </div>
+      </mat-menu>
+    </div>
+  
+    <mat-menu #color="matMenu" [overlapTrigger]="false">
+      <div fxLayout="row" fxLayoutGap="10px" style="margin-top: 3px" *ngFor="let color of colors">
+        <div *ngFor="let noteColor of color">
+          <button [ngStyle]="{ 'background-color': noteColor.colorCode }" (click)="setColor(noteColor.colorName)"
+            matTooltip="{{ noteColor.colorName }}" mat-mini-fab></button>
+        </div>
+      </div>
+    </mat-menu>
+  </div>

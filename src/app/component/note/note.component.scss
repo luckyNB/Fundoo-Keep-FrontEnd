@@ -1,0 +1,60 @@
+.input{
+    
+    margin-bottom: 6%;
+    .input
+{
+width: 430px;
+font-size: 25px;
+border: antiquewhite;
+}
+}
+input.input:focus{
+    outline-width: 0; 
+    }
+    .popupCard{
+        margin-left: 10%;
+    
+        margin-right: 41%;  
+    
+    
+    }
+   
+    .flex-container {
+        flex-wrap: wrap;
+      }
+      .mat-color{
+          color:black
+      }
+
+      .buttonApps{
+        padding: 0;
+        min-width: 0;
+        width: 40px;
+        height: 40px;
+        flex-shrink: 0;
+        line-height: 40px;
+        border-radius: 50%
+        }
+        .reminderMain{
+        width: 270px;
+        height: 270px;
+        }
+        .reminderTittle{
+        color: #202124;
+        direction: ltr;
+        font-family: 'Roboto',arial,sans-serif;
+        font-size: 15px;
+        height: 30px;
+        margin-left: 5%;
+        }
+        .reminderInside{
+        color: #202124;
+        direction: ltr;
+        font-family: 'Roboto',arial,sans-serif;
+        font-size: 12px;
+        height: 46px;
+        margin-left: 5%;
+        }
+        .noteHover:hover{
+            box-shadow: 6px 6px 6px #888888; 
+        }

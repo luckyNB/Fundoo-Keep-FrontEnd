@@ -1,0 +1,42 @@
+<div>
+
+        <!-- <div class="iconname" style="margin-left: 12px;margin-top: 5px">LABELS</div> -->
+        <div class=".matcard">
+                <div class="labels1" *ngFor="let labels of label" style="display: flex;
+                 flex-direction: row;">
+                        <div class="iconimage" (click)="onDeleteLabel(labels)">
+                                <mat-icon>delete_outline</mat-icon>
+
+
+                        </div>
+                        <div class="iconname" matTooltip="{{labels.labelName}}">
+                                <input matInput [(ngModel)]="labels.labelName" placeholder="{{labels.labelName}}"
+                                type="text">     
+                        </div>
+                        
+
+                        <div (click)="onEditLabel(labels)">
+                                <mat-icon>edit</mat-icon>
+                        </div>
+                </div>
+
+        </div>
+        <!-- <div class="labels1" (click)="opendialogLabel()" fxLayout="row" fxLayoutAlign="space-between center">
+          <div class="iconimage" matTooltip="Edit">
+                  <img src="../../../assets/label.svg">
+
+          </div>
+          <div class="iconname">Edit Labels</div>
+  </div> -->
+
+
+
+</div>
+
+
+
+<!-- 
+<div>
+        <input matInput [(ngModel)]="labels.labelName" type="text" placeholder="Create label" style="color: #202124;direction: ltr;font-family: 'Roboto',arial,sans-serif;font-size: 20px;margin-top:-12px;width:155px;margin-top:5px">
+        </div>
+        Send a message -->

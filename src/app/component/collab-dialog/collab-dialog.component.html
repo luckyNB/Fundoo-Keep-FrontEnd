@@ -1,0 +1,30 @@
+<div fxLayout="column" fxLayoutAlign="space-around start">
+  <div>Collaborators </div>
+
+
+  <div style="padding-top:2%;" fxLayout="row" fxLayoutAlign="start center">
+    <mat-icon>person_add</mat-icon>{{emailId}}
+    <div style="padding-left:2%;" *ngFor="let  collabUser of collaboratedUser">
+      <mat-icon>person_add</mat-icon>{{collabUser.emailId}}
+    </div>
+    <div style="padding-left:5%;padding-bottom: 1%;">
+      <input matInput placeholder="Person or email to share with" [(ngModel)]="collaborator.emailId">
+    </div>
+    <!-- <div>
+      <button mat-icon-button (click)="addCollab()">
+        <mat-icon matTooltip="Add Collaborators">done</mat-icon>
+      </button>
+    </div> -->
+
+  </div>
+  <mat-divider></mat-divider>
+  <div fxLayout="row">
+
+    <button mat-button (click)=cancel()>Cancel</button>
+
+
+    <button mat-button (click)="addCollab()">Save</button>
+
+  </div>
+</div>
+

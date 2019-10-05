@@ -1,0 +1,19 @@
+.mat-raised-button{
+
+  display: flex;
+  outline: none;
+  border-color: transparent;
+  box-shadow: none;
+  height: 8vh;
+  border-top-right-radius: 50px 50px;
+ border-bottom-right-radius: 50px 50px;
+}
+.mat-raised-button:hover
+{
+  background-image:none;
+  background-color:lightgrey;
+  border-right: 50px 50px;
+}
+.mat-raised-button:focus {
+  background-color: #fcefc3;
+}

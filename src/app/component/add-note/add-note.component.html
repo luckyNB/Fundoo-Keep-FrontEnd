@@ -1,0 +1,105 @@
+<div style="display: flex;flex-direction: row;justify-content: center;">
+
+  <div>
+    <mat-card *ngIf="!popup" (click)="onPopup()" class="popupCard" style="    margin-bottom: 10%;">
+      <div fxLayout="row" fxLayoutAlign="space-between center">
+        <div>
+          <input matInput type="text" placeholder="Take a Note..." class="topinput" style="font-size: .875rem;">
+
+          <button mat-icon-button matTooltip="Brush" routerLink="/dashboard" style="margin-right: 3px">
+            <mat-icon style="font-size: 18px !important">brush</mat-icon>
+          </button>
+
+          <button mat-icon-button matTooltip="Image" routerLink="/dashboard" style="margin-right: 3px">
+            <mat-icon style="font-size: 18px !important">photo</mat-icon>
+          </button>
+        </div>
+      </div>
+    </mat-card>
+  </div>
+<div class="something" role="button" style="-moz-user-select: none;"></div>
+
+
+<!-- <div role="button" class="Q0hgme-LgbsSe XPtOyb-bN97Pc VIpgJd-LgbsSe" tabindex="0" style="-moz-user-select: none;"><div class="XPtOyb-Bz112c"></div><label class="XPtOyb-fmcmS">Today, 8:00 PM</label></div> -->
+
+
+
+  <div flex=100 fxLayoutAlign="center center" style="margin-top: 2%">
+    <mat-card *ngIf="popup" fxLayoutAlign="start center" style=" margin-bottom: 5%;">
+
+      <div style=" display: flex;flex-direction: column;">
+        <div>
+          <input matInput type="text" placeholder="title" class="input" [(ngModel)]="note.title"
+            style="    font-size: 1rem;" />
+          <button matTooltip="pinned" style="background-color: white;border-width: 0px;">
+
+            <div><img src="../../../assets/unpinned.svg"></div>
+          </button>
+        </div>
+
+        <div fxLayout="row" fxLayoutAlign="start start">
+          <input matInput type="text" placeholder="Take a Note..." [(ngModel)]="note.description" class="input"
+            style="font-size: 10px;" style="margin-top:-20px"
+            style="color: #202124;direction: ltr;font-family: 'Roboto',arial,sans-serif;font-size: .875rem;" />
+        </div>
+        <div style="display: flex;flex-direction: row;">
+
+          <div>
+            <button mat-icon-button matTooltip="Reminder">
+              <mat-icon style="font-size: 17px !important">add_alert</mat-icon>
+              <!-- <button mat-raised-button (click)="picker.open()">Open</button> -->
+            </button>
+          </div>
+
+          <div>
+            <button mat-icon-button matTooltip="Collaborate" routerLink="/dashboard">
+              <mat-icon style="font-size: 17px !important">group_add</mat-icon>
+            </button>
+          </div>
+
+          <div>
+            <button mat-icon-button matTooltip="Change Color" routerLink="/dashboard">
+              <mat-icon style="font-size: 17px !important">color_lens</mat-icon>
+            </button>
+          </div>
+
+          <div>
+            <button mat-icon-button matTooltip="Add Image" routerLink="/dashboard">
+              <mat-icon style="font-size: 17px !important">image</mat-icon>
+            </button>
+          </div>
+
+          <div>
+            <button mat-icon-button matTooltip="Archive" routerLink="/dashboard">
+              <mat-icon style="font-size: 17px !important">archive</mat-icon>
+            </button>
+          </div>
+
+          <div>
+            <button mat-icon-button matTooltip="More Option" routerLink="/dashboard">
+              <mat-icon style="font-size: 17px !important">more_vert</mat-icon>
+            </button>
+          </div>
+
+          <div>
+            <button mat-icon-button matTooltip="Undo" routerLink="/dashboard">
+              <mat-icon style="font-size: 17px !important">undo</mat-icon>
+            </button>
+          </div>
+          <div>
+            <button mat-icon-button matTooltip="Redo" routerLink="/dashboard">
+              <mat-icon style="font-size: 16px !important">redo</mat-icon>
+            </button>
+          </div>
+
+
+
+          <div class="divspace">
+            <!-- <button mat-icon-button matTooltip="New note with drawing" routerLink="/dashboard"> -->
+            <button mat-button matTooltip="close" (click)="close()">Close</button>
+          </div>
+        </div>
+      </div>
+    </mat-card>
+  </div>
+</div>

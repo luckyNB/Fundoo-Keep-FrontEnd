@@ -1,0 +1,45 @@
+<div class="dialoglabel" fxLayout="column" fxLayoutAlign=" start" style="width: 100%;
+height: 50%;">
+
+
+
+<mat-divider></mat-divider>
+  <div>
+    <h4>Edit Labels</h4>
+  </div>
+  <div fxLayout="row" fxLayoutAlign="start">
+
+    <div>
+      <button (click)="clear(items)" style="border: 0px;background-color: white;margin-left: -20px">
+      </button>
+    </div>
+    <div>
+
+      <mat-form-field class="input"
+        style="color: #202124;direction: ltr;font-family: 'Roboto',arial,sans-serif;font-size: 20px;margin-top:-12px;width:155px;margin-top:5px">
+        <input matInput placeholder="create label" [(ngModel)]="labelData.labelName">
+      </mat-form-field>
+
+    <button (click)="createlabel()" style="border: 0px;background-color: white">
+      <img src="https://img.icons8.com/material/24/000000/checkmark.png"></button>
+</div>
+  </div>
+  <div *ngFor="let items of label" fxLayout="row" fxLayoutAlign="center center">
+
+    <div>
+      <button (click)="deleteLabel(items)" style="border: 0px;background-color: white;margin-left: -10px">
+        <mat-icon>delete_outline</mat-icon>
+      </button>
+    </div>
+    <div>
+      <mat-form-field class="example-full-width">
+        <input matInput type="text" value={{items.labelName}} [formControl]="labelName">
+      </mat-form-field>
+    </div>
+
+  </div>
+  <app-label></app-label>
+
+  <mat-divider></mat-divider>
+
+</div>

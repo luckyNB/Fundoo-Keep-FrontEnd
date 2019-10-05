@@ -1,0 +1,87 @@
+<div fxLayoutAlign="center center" style="margin-top: 2%" class="dialog">
+
+  <mat-card fxLayout="column" fxLayoutAlign="center center" >
+    <div flex=10 fxLayout="column" fxLayoutAlign="start start">
+      <div>
+        <input matInput type="text" placeholder="title" class="input" [formControl]="title" 
+          style="color: #202124;direction: ltr;font-family: 'Roboto',arial,sans-serif;font-size: 15px;font-size: 20px; outline-width: 0;
+          border: none;" />
+      </div>
+
+      <div fxLayout="row" fxLayoutAlign="start start">
+        <input matInput type="text" placeholder="Take a Note..."  [formControl]="description"   class="input"  style="margin-top:-20px"
+          style="color: #202124;direction: ltr;font-family: 'Roboto',arial,sans-serif;font-size: 20px; outline-width: 0;
+          border: none;" />
+
+      </div>
+
+
+      <div style="display: flex;flex-direction: row;">
+
+        <div>
+          <button mat-icon-button matTooltip="Reminder">
+            <mat-icon style="font-size: 17px !important">add_alert</mat-icon>
+            <!-- <button mat-raised-button (click)="picker.open()">Open</button> -->
+          </button>
+        </div>
+
+        <div>
+          <button mat-icon-button matTooltip="Collaborate" routerLink="/dashboard">
+            <mat-icon style="font-size: 17px !important">group_add</mat-icon>
+          </button>
+        </div>
+
+        <div>
+          <button mat-icon-button matTooltip="Change Color" routerLink="/dashboard">
+            <mat-icon style="font-size: 17px !important">color_lens</mat-icon>
+          </button>
+        </div>
+
+        <div>
+          <button mat-icon-button matTooltip="Add Image" routerLink="/dashboard">
+            <mat-icon style="font-size: 17px !important">image</mat-icon>
+          </button>
+        </div>
+
+        <div>
+          <button mat-icon-button matTooltip="Archive" routerLink="/dashboard">
+            <mat-icon style="font-size: 17px !important">archive</mat-icon>
+          </button>
+        </div>
+
+        <div>
+          <button mat-icon-button matTooltip="More Option" routerLink="/dashboard">
+            <mat-icon style="font-size: 17px !important">more_vert</mat-icon>
+          </button>
+        </div>
+
+        <div>
+          <button mat-icon-button matTooltip="Undo" routerLink="/dashboard">
+            <mat-icon style="font-size: 17px !important">undo</mat-icon>
+          </button>
+        </div>
+        <div>
+          <button mat-icon-button matTooltip="Redo" routerLink="/dashboard">
+            <mat-icon style="font-size: 16px !important">redo</mat-icon>
+          </button>
+        </div>
+
+        <!-- <div>
+              for Next button
+              <button mat-button>Next</button>
+              <nav>
+                  <a class="button" (click)="onLogin()">Login</a>
+              </nav>
+            </div> -->
+
+        <div class="divspace">
+          <!-- <button mat-icon-button matTooltip="New note with drawing" routerLink="/dashboard"> -->
+          <button mat-button matTooltip="close" (click)="onClose();">Close</button>
+        </div>
+      </div>
+
+
+    </div>
+
+  </mat-card>
+</div>

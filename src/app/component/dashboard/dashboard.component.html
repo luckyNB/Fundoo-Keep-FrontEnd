@@ -1,0 +1,194 @@
+
+
+  <div fxLayout="column" fxLayoutAlign="end">
+      <div fxLayoutAlign="center start" fxFlex="80" class="toolbar">
+    
+        <mat-toolbar class="mat-toolbar">
+          <mat-toolbar-row>
+              <div>
+                  <button mat-button (click)="sidenav.toggle()" class="mat-icon-button">
+                    <mat-icon>menu</mat-icon>
+                  </button>
+                </div>
+                <div>
+                    <img mat-img src="https://ssl.gstatic.com/keep/keep.ico" />
+                  </div>
+                  &nbsp;&nbsp;
+                  <div>
+                      <span class="title">fundooNotes</span>
+                    </div>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <div class="searchBar">
+                        <mat-card fxLayoutAlign="center center" class="searchInput">
+                          <button mat-icon-button class="searchButton">
+                            <mat-icon>search</mat-icon>
+                          </button>
+                          <input mat-input class="searchInput" placeholder="Search" [(ngModel)]="searchData.searchingData"   (input)="onSearchChange($event.target.value)" >
+                        </mat-card>
+                      </div >
+                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                      <div>
+                          <button mat-icon-button>
+                            <mat-icon>refresh</mat-icon>
+                          </button>
+                        </div>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <div *ngIf="toggle==true"> <button mat-icon-button  (click)="list()">
+                            <mat-icon><img src="../../../assets/NonGrid.svg" alt=""></mat-icon>
+                          </button>
+                        </div>
+                        <div *ngIf="toggle==false"> <button mat-icon-button  (click)="grid()">
+                          <mat-icon style="color: gray"><img src="../../../assets/gridIcon.svg" alt=""></mat-icon>
+                        </button>
+                      </div>
+                        &nbsp;&nbsp;&nbsp;
+                        
+                      	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <div fxFlex="20">
+                            <button mat-icon-button [matMenuTriggerFor]="accountmenu" matTooltip={{email}}>
+                                <img mat-card-avatar src="http://localhost:8080/user/getuploadedimage/{{token}}" />
+                            </button>
+                          </div>
+
+            </mat-toolbar-row>
+          </mat-toolbar>
+        </div>
+      
+
+
+
+
+
+        <mat-menu #accountmenu="matMenu">
+            <mat-card style="height: 120px;width: 245px;">
+              <div fxLayout="row">
+                <button mat-button (click)=profileDialog()>
+                  <img mat-card-avatar src="http://localhost:8080/user/getuploadedimage/{{token}}" />
+                </button>
+              </div>
+              <span> {{firstName}} </span>
+              <br>
+              <span> {{email}} </span>
+              <mat-divider></mat-divider>
+              <div fxLayout="row" fxLayoutAlign="space-around center">
+                <div>
+                  <button routerLink="/register" routerLinkActive="active" fxLayoutAlign="start center" class="accountButtons">Add
+                    Account</button>
+                </div>
+                <div>
+                  <button (click)="logout()" fxLayoutAlign="end center" class="accountButtons" >Log Out</button>
+                </div>
+              </div>
+            </mat-card>
+          </mat-menu>
+
+          
+
+    
+      <mat-divider></mat-divider>
+      <!-- Open the sidenav bar after click on menu button in the dashboard -->
+      <div fxLayout="column" fxLayoutAlign="start" fxFlex="50">
+        <mat-sidenav-container>
+          <mat-sidenav #sidenav mode="side" class="sidenav">
+            <div fxLayout="column" fxLayoutAlign="start" fxFlex="100">
+              <div><button mat-raised-button style="width:100%" [routerLink]="['notes']">
+                  <mat-icon>lightbulb_outline</mat-icon><span style="margin:28%">Note</span>
+                </button>
+              </div>
+              <div>
+                <button mat-raised-button style="width:100%" [routerLink]="['reminderNote']">
+                  <mat-icon>notifications_none</mat-icon><span style="margin:20%"> Reminders</span>
+                </button>
+              </div>
+              <div>
+                <mat-divider class="divider"></mat-divider>
+                <span class="name">LABELS</span>
+              </div>
+              <div>
+
+
+            
+                  <div >
+                      <div class="labels1" *ngFor="let labels of label" style="display: flex;
+                                     flex-direction: row; width: 100%">
+                  
+                  
+                  
+                        <div fxLayout="row">
+                       
+                        
+                              <button mat-raised-button style="width:100%">
+                                
+                                  <img src="../../../assets/label.svg">
+                                  {{labels.labelName}}
+                             
+                              </button>
+                          
+                          
+                        </div>
+                  
+                  
+                  
+                      </div>
+                  
+                    </div>
+                    <div class="labels1" (click)="opendialogLabel()" fxLayout="row" fxLayoutAlign="space-between center">
+                      <div class="iconimage" matTooltip="Edit">
+                        <img src="../../../assets/label.svg">
+                        <label>Edit Label</label>
+                      </div>
+                  
+                    </div>
+                  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+              <!-- <app-label-display></app-label-display> -->
+                  
+              </div>
+              <!-- [routerLink]="['reminderNote']" -->
+        
+              <div>
+                <mat-divider class="divider"></mat-divider>
+                <button mat-raised-button style="width:100%" [routerLink]="['archived']">
+                  <mat-icon>archive</mat-icon>
+                  <span style="margin:27%">Archive</span>
+                </button>
+              </div>
+              <div>
+                <button mat-raised-button style="width:100%" [routerLink]="['trashed']">
+                  <mat-icon>delete_outline</mat-icon>
+                  <span style="margin:30%">Trash</span>
+                </button>
+              </div>
+            </div>
+    
+          </mat-sidenav>
+          <mat-sidenav-content class="abc">
+            <div>
+                <app-add-note></app-add-note>
+              
+             <!-- <app-add-note></app-add-note> -->
+                <router-outlet></router-outlet>
+            </div>
+          </mat-sidenav-content>
+        </mat-sidenav-container>
+      </div>
+    </div>
+
+
+
